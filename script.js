@@ -68,7 +68,7 @@ function scoreUpdate() {
     if (score >= totalScore) {
         score = 0;
         scoreLine.style.width = '0%';
-        lvN +=1
+        lvN +=1;
     };
     scoreN.innerHTML = lvN;
 };
