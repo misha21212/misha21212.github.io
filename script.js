@@ -18,7 +18,7 @@ let scoreN = document.querySelector('.lv-n');
 let scoreLvUpgrade = false;
 let isReady = false;
 
-const money = document.querySelector('.money-quan');
+let money = document.querySelector('.money-quan');
 const button = document.querySelector('.hamster-img');
 const modalShop = document.querySelector('.shop-modal');
 const closeShop = document.querySelector('.close-shop');
@@ -40,7 +40,27 @@ button.onclick = function() {
     scoreUpdate();
     lvTotalUpgrade();
     RandomClickActive();
+    saveMoney();
 };
+
+window.onload = function() {
+    loadData();
+};
+
+function loadData() {
+    if (localStorage.getItem('coins')) {
+        coins = parseInt(localStorage.getItem('coins'));
+    }
+    if (localStorage.getItem('score')) {
+        score = parseInt(localStorage.getItem('score'));
+    }
+    updateCoins(); 
+}
+
+function saveData() {
+    localStorage.setItem('coins', coins);
+    localStorage.setItem('score', score);
+}
 
 function scoreUpdate() {
     const progressPercentage = (score / totalScore) * 100;
@@ -145,7 +165,8 @@ overlay.onclick = function() {
 }
 
 setInterval(() => {
-    coins+=autoClick;
-    score+=autoClick;
+    coins += autoClick;
+    score += autoClick;
     updateCoins();
-}, 600)
+    saveData(); 
+}, 600);
