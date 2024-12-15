@@ -44,7 +44,8 @@ body {
 }
 
 .shop-modal {
-	width: 500px;
+	max-width: 500px;
+	width: 75%;
 	background-color: #31315c;
 	color: #fff;
 	padding: 15px;
