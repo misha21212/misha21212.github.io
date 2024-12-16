@@ -17,6 +17,7 @@ let lvN = 0;
 let scoreN = document.querySelector('.lv-n');
 let scoreLvUpgrade = false;
 let isReady = false;
+let factorKey = document.querySelector('.factor');
 
 let money = document.querySelector('.money-quan');
 const button = document.querySelector('.hamster-img');
@@ -32,6 +33,7 @@ const scoreLine = document.querySelector('.score');
 
 
 
+
 //Сам код
 button.onclick = function() {
     coins+=factor;
@@ -40,7 +42,7 @@ button.onclick = function() {
     scoreUpdate();
     lvTotalUpgrade();
     RandomClickActive();
-    saveMoney();
+    saveData();
 };
 
 window.onload = function() {
@@ -54,12 +56,36 @@ function loadData() {
     if (localStorage.getItem('score')) {
         score = parseInt(localStorage.getItem('score'));
     }
+    if (localStorage.getItem('cost1')) {
+        cost1 = parseInt(localStorage.getItem('cost1'));
+    }
+    if (localStorage.getItem('cost2')) {
+        cost2 = parseInt(localStorage.getItem('cost2'));
+    }
+    if (localStorage.getItem('cost3')) {
+        cost3 = parseInt(localStorage.getItem('cost3'));
+    }
+    if (localStorage.getItem('cost4')) {
+        cost4 = parseInt(localStorage.getItem('cost4'));
+    }
+    if (localStorage.getItem('factor')) {
+        factor = parseInt(localStorage.getItem('factor'));
+    }
     updateCoins(); 
+    scoreUpdate();
+
+
 }
 
 function saveData() {
     localStorage.setItem('coins', coins);
     localStorage.setItem('score', score);
+    localStorage.setItem('cost1', cost1);
+    localStorage.setItem('cost2', cost2);
+    localStorage.setItem('cost3', cost3);
+    localStorage.setItem('cost4', cost4);
+    localStorage.setItem('factor', factor);
+    
 }
 
 function scoreUpdate() {
@@ -144,6 +170,7 @@ buy4.onclick = function() {
 
 function updateCoins() {
     money.innerHTML = coins;
+    factorKey = factor;
     costText1.innerHTML = cost1;
     costText2.innerHTML = cost2;
     costText3.innerHTML = cost3;
