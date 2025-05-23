@@ -1,0 +1,98 @@
+@use '../helpers/' as *;
+
+.header {
+    height: var(--header-height);
+    background-color: var(--color-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: rem(0) rem(4) rem(20) var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: rem(15);
+    padding-inline: rem(50);
+    opacity: 0.9;
+
+    @include tablet {
+        padding-inline: rem(35);
+    }
+
+    @include mobile {
+        padding-inline: rem(20);
+    }
+
+    &__overlay {
+        display: flex;
+        align-items: center;
+        font-family: "Play", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--color-dark-20);
+
+        @include mobile {
+            position: fixed;
+            inset: 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 3rem;
+            background-color: var(--color-light);
+            transition-duration: var(--transition-duration);
+
+            &:not(.is-active) {
+                display: none;
+            }
+        }
+    }
+
+    &__menu {
+
+        &-list {
+            display: flex;
+
+            @include mobile {
+                flex-direction: column;
+                gap: rem(25);
+            }
+        }
+
+        &-item {
+            
+            &:not(:last-child) {
+                margin-right: rem(25);
+            }
+        }
+
+        &-link {
+            font-weight: 600;
+        }
+    }
+
+    &__soc1als {
+        margin-left: rem(40);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        @include mobile {
+            margin: 0;
+        }
+
+        
+    }
+
+    &__burger-button {
+        display: none;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    @include mobile {
+        opacity: 1;
+    }
+}

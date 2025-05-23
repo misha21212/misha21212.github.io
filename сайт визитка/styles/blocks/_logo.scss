@@ -1,0 +1,11 @@
+@use '../helpers/' as *;
+
+.logo {
+    font-size: 50px;
+    font-family: var(--font-family-origin);
+    color: var(--color-dark-20);
+
+    @include mobile-s {
+        font-size: 35px;
+    }
+}
