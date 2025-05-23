@@ -1,0 +1,70 @@
+@use '../helpers/' as *;
+
+.hero {
+    display: flex;
+    align-items: center;
+    background-image: url('../img/hero/background-img.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;   
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    justify-content: center;
+
+    @include tablet {
+        align-items: normal;
+    }
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-evenly;
+
+    &__name {
+        width: 60%;
+        margin-top: rem(100);
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-style: normal;
+
+        @include laptop {
+            width: 75%;
+        }
+
+        @include mobile {
+            width: 80%;
+        }
+
+        @include mobile-s {
+            width: 95%;
+            margin-top: rem(30);
+        }
+
+        span {
+            background-image: url('../img/hero/text-back.jpeg');
+            padding: 0 rem(10) rem(5) rem(10);
+            color: var(--color-light);
+        }
+
+        .h1 {
+            font-family: "Play", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: var(--color-dark-20);
+        }
+
+        .h4 {
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    }
+
+
+
+    &__image {
+        
+        @include tablet {
+            display: none;
+        }
+    }
+}
