@@ -1,17 +1,37 @@
 @use '../helpers/' as *;
 
-.wave {
+.hero-border-bottom-1 {
     width: 100%;
     height: 50px;
     background-image: url(../img/hero/wave3.png);
     background-size: rem(2000) rem(70);
-    animation: wave-bottom 25s linear infinite;
+    animation: wave-bottom1 25s linear infinite;
     position: absolute;
     opacity: 0.5;
     transform: rotateX(180deg);
 }
 
-@keyframes wave-bottom {
+@keyframes wave-bottom1 {
+    0% {
+        background-position-x: rem(0);
+    }
+    100% {
+        background-position-x: rem(2000);
+    }
+}
+
+.hero-border-bottom-2 {
+    width: 100%;
+    height: 43px;
+    background-image: url(../img/hero/wave2.png);
+    background-size: rem(2000) rem(70);
+    animation: wave-bottom2 20s linear infinite;
+    position: absolute;
+    opacity: 0.8;
+    transform: rotateX(180deg);
+}
+
+@keyframes wave-bottom2 {
     0% {
         background-position-x: rem(0);
     }

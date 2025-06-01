@@ -19,14 +19,18 @@
 
     --border: #{rem(1)} solid var(--color-dark-15);
 
+    --box-shadow: #b2b2b2;
+
     --font-family-base: "PT Sans", sans-serif;
     --font-family-accent: "Play", sans-serif;
     --font-family-origin: "Oswald", sans-serif;
+    --font-family-hs: "Jost", sans-serif;
+    --font-family-cursive: "Great Vibes", cursive;
 
     --container-width: #{rem(1400)};
     --container-padding-x: #{rem(16)};
 
-    --transition-duration: 0.2s;
+    --transition-duration: 0.5s ease;
 
     --header-height: #{rem(70)};
 

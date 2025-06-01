@@ -22,7 +22,7 @@
     &__name {
         width: 60%;
         margin-top: rem(100);
-        font-family: "Great Vibes", cursive;
+        font-family: var(--font-family-origin);
         font-weight: 400;
         font-style: normal;
 
@@ -40,13 +40,23 @@
         }
 
         span {
+            font-family: var(--font-family-cursive);
             background-image: url('../img/hero/text-back.jpeg');
-            padding: 0 rem(10) rem(5) rem(10);
+            padding: 0 rem(20) 0 rem(10);
             color: var(--color-light);
+            height: 110px;
+            display: inline-flex;
+            align-items: center;
+
+            @include fluid-text(124, 58);
+
+            @include tablet {
+                height: auto;
+            }
         }
 
         .h1 {
-            font-family: "Play", sans-serif;
+            font-family: var(--font-family-hs);
             font-weight: 400;
             font-style: normal;
             color: var(--color-dark-20);

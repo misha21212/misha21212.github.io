@@ -218,12 +218,15 @@ svg * {
   --color-red: #FF5500;
   --gradient: linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-accent) 136%);
   --border: 0.0625rem solid var(--color-dark-15);
+  --box-shadow: #b2b2b2;
   --font-family-base: "PT Sans", sans-serif;
   --font-family-accent: "Play", sans-serif;
   --font-family-origin: "Oswald", sans-serif;
+  --font-family-hs: "Jost", sans-serif;
+  --font-family-cursive: "Great Vibes", cursive;
   --container-width: 87.5rem;
   --container-padding-x: 1rem;
-  --transition-duration: 0.2s;
+  --transition-duration: 0.5s ease;
   --header-height: 4.375rem;
 }
 @media (width <= 90.06125rem) {
@@ -306,7 +309,7 @@ h6, .h6 {
 
 h1, .h1 {
   font-size: clamp(2.8125rem, 2.0159313725rem + 3.2679738562vw, 5.9375rem);
-  line-height: 1.2;
+  line-height: 1;
 }
 
 h2, .h2 {
@@ -399,7 +402,7 @@ button[aria-label]::before {
 .header__overlay {
   display: flex;
   align-items: center;
-  font-family: "Play", sans-serif;
+  font-family: var(--font-family-accent);
   font-weight: 400;
   font-style: normal;
   color: var(--color-dark-20);
@@ -407,17 +410,28 @@ button[aria-label]::before {
 @media (width <= 47.99875rem) {
   .header__overlay {
     position: fixed;
-    inset: 0;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     row-gap: 3rem;
     background-color: var(--color-light);
-    transition-duration: var(--transition-duration);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 70vh;
+    transform: translateY(-650px);
+  }
+  .header__overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: var(--transition-duration);
   }
   .header__overlay:not(.is-active) {
-    display: none;
+    opacity: 0;
+    transition: var(--transition-duration);
+    visibility: hidden;
   }
 }
 .header__menu-list {
@@ -517,7 +531,7 @@ button[aria-label]::before {
 .hero-container__name {
   width: 60%;
   margin-top: 6.25rem;
-  font-family: "Great Vibes", cursive;
+  font-family: var(--font-family-origin);
   font-weight: 400;
   font-style: normal;
 }
@@ -538,12 +552,22 @@ button[aria-label]::before {
   }
 }
 .hero-container__name span {
+  font-family: var(--font-family-cursive);
   background-image: url("../img/hero/text-back.jpeg");
-  padding: 0 0.625rem 0.3125rem 0.625rem;
+  padding: 0 1.25rem 0 0.625rem;
   color: var(--color-light);
+  height: 110px;
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(3.625rem, 2.5735294118rem + 4.3137254902vw, 7.75rem);
+}
+@media (width <= 65.68625rem) {
+  .hero-container__name span {
+    height: auto;
+  }
 }
 .hero-container__name .h1 {
-  font-family: "Play", sans-serif;
+  font-family: var(--font-family-hs);
   font-weight: 400;
   font-style: normal;
   color: var(--color-dark-20);
@@ -603,7 +627,7 @@ button[aria-label]::before {
 }
 .wave__3 {
   width: 100%;
-  height: 90px;
+  height: 75px;
   background-image: url(../img/hero/wave3.png);
   background-size: 125rem 6.25rem;
   animation: wave3 25s linear infinite;
@@ -632,18 +656,37 @@ button[aria-label]::before {
   }
 }
 
-.wave {
+.hero-border-bottom-1 {
   width: 100%;
   height: 50px;
   background-image: url(../img/hero/wave3.png);
   background-size: 125rem 4.375rem;
-  animation: wave-bottom 25s linear infinite;
+  animation: wave-bottom1 25s linear infinite;
   position: absolute;
   opacity: 0.5;
   transform: rotateX(180deg);
 }
 
-@keyframes wave-bottom {
+@keyframes wave-bottom1 {
+  0% {
+    background-position-x: 0rem;
+  }
+  100% {
+    background-position-x: 125rem;
+  }
+}
+.hero-border-bottom-2 {
+  width: 100%;
+  height: 43px;
+  background-image: url(../img/hero/wave2.png);
+  background-size: 125rem 4.375rem;
+  animation: wave-bottom2 20s linear infinite;
+  position: absolute;
+  opacity: 0.8;
+  transform: rotateX(180deg);
+}
+
+@keyframes wave-bottom2 {
   0% {
     background-position-x: 0rem;
   }
