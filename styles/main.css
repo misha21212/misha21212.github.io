@@ -214,11 +214,11 @@ svg * {
   --color-dark-40: #666666;
   --color-gray-50: #7E7E81;
   --color-gray-60: #98989A;
-  --color-accent: #FFD11A;
-  --color-red: #FF5500;
-  --gradient: linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-accent) 136%);
+  --color-transperty: #60606067;
+  --color-accent: #2940ff;
   --border: 0.0625rem solid var(--color-dark-15);
-  --box-shadow: #b2b2b2;
+  --outline: 0.0625rem solid var(--color-accent);
+  --box-shadow: 0rem 0.25rem 1.25rem #b2b2b2;
   --font-family-base: "PT Sans", sans-serif;
   --font-family-accent: "Play", sans-serif;
   --font-family-origin: "Oswald", sans-serif;
@@ -226,7 +226,7 @@ svg * {
   --font-family-cursive: "Great Vibes", cursive;
   --container-width: 87.5rem;
   --container-padding-x: 1rem;
-  --transition-duration: 0.5s ease;
+  --transition-duration: 0.5s;
   --header-height: 4.375rem;
 }
 @media (width <= 90.06125rem) {
@@ -341,6 +341,7 @@ textarea,
 select,
 svg * {
   transition-duration: var(--transition-duration);
+  font-family: var(--font-family-base);
 }
 
 a {
@@ -360,28 +361,13 @@ a:hover {
   transition-duration: 0s !important;
 }
 
-a[aria-label],
-button[aria-label] {
-  position: relative;
-}
-a[aria-label]::before,
-button[aria-label]::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: 2.75rem;
-  height: 2.75rem;
-  content: "";
-}
-
 .header {
   height: var(--header-height);
   background-color: var(--color-light);
   position: sticky;
   top: 0;
-  z-index: 100;
-  box-shadow: 0rem 0.25rem 1.25rem var(--box-shadow);
+  z-index: 5;
+  box-shadow: var(--box-shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -421,6 +407,7 @@ button[aria-label]::before {
     width: 100vw;
     height: 70vh;
     transform: translateY(-650px);
+    box-shadow: var(--box-shadow);
   }
   .header__overlay.is-active {
     opacity: 1;
@@ -433,6 +420,9 @@ button[aria-label]::before {
     transition: var(--transition-duration);
     visibility: hidden;
   }
+}
+.header__menu {
+  margin-right: 2.1875rem;
 }
 .header__menu-list {
   display: flex;
@@ -448,6 +438,7 @@ button[aria-label]::before {
 }
 .header__menu-link {
   font-weight: 600;
+  cursor: pointer;
 }
 .header__soc1als {
   margin-left: 2.5rem;
@@ -649,6 +640,7 @@ button[aria-label]::before {
   font-size: 50px;
   font-family: var(--font-family-origin);
   color: var(--color-dark-20);
+  cursor: pointer;
 }
 @media (width <= 30.06125rem) {
   .logo {
@@ -729,4 +721,82 @@ button[aria-label]::before {
 .burger-button__line:last-child {
   width: 55%;
   align-self: end;
+}
+
+.button-applications {
+  background-color: var(--color-accent);
+  padding: 0.625rem 2.5rem;
+  border-radius: 0.625rem;
+  color: var(--color-light);
+  cursor: pointer;
+}
+.button-applications:hover {
+  background-color: var(--color-accent-hover);
+  outline: var(--outline);
+  color: var(--color-dark-10);
+}
+
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-light);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  z-index: 20;
+}
+.form-container:not(.is-active) {
+  display: none;
+}
+.form-container form {
+  display: grid;
+  gap: 0.9375rem;
+  padding: 0 6.25rem 1.875rem 6.25rem;
+}
+.form-container form button {
+  margin-top: 0.9375rem;
+  background-color: var(--color-accent);
+  padding: 0.625rem 2.5rem;
+  border-radius: 0.625rem;
+  color: var(--color-light);
+  cursor: pointer;
+}
+.form-container form button:hover {
+  background-color: var(--color-accent-hover);
+  outline: var(--outline);
+  color: var(--color-dark-10);
+}
+.form-container__close-button {
+  align-self: flex-end;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.9375rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.4375rem 0.625rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.overflow {
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-transperty);
+}
+.overflow:not(.is-active) {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

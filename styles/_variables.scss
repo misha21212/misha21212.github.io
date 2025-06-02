@@ -12,14 +12,14 @@
     --color-gray-50: #7E7E81;
     --color-gray-60: #98989A;
 
-    --color-accent: #FFD11A;
-    --color-red: #FF5500;
+    --color-transperty: #60606067;
 
-    --gradient: linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-accent) 136%);
+    --color-accent: #2940ff;
 
     --border: #{rem(1)} solid var(--color-dark-15);
+    --outline: #{rem(1)} solid var(--color-accent);
 
-    --box-shadow: #b2b2b2;
+    --box-shadow: #{rem(0)} #{rem(4)} #{rem(20)} #b2b2b2;
 
     --font-family-base: "PT Sans", sans-serif;
     --font-family-accent: "Play", sans-serif;
@@ -30,7 +30,7 @@
     --container-width: #{rem(1400)};
     --container-padding-x: #{rem(16)};
 
-    --transition-duration: 0.5s ease;
+    --transition-duration: 0.5s;
 
     --header-height: #{rem(70)};
 

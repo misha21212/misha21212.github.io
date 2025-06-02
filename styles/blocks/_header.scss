@@ -5,8 +5,8 @@
     background-color: var(--color-light);
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: rem(0) rem(4) rem(20) var(--box-shadow);
+    z-index: 5;
+    box-shadow: var(--box-shadow);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,6 +43,7 @@
         width: 100vw;
         height: 70vh;
         transform: translateY(-650px); 
+        box-shadow: var(--box-shadow);
 
         &.is-active {
             opacity: 1; 
@@ -60,6 +61,7 @@
     
 
     &__menu {
+        margin-right: rem(35);
 
         &-list {
             display: flex;
@@ -79,6 +81,7 @@
 
         &-link {
             font-weight: 600;
+            cursor: pointer;
         }
     }
 
