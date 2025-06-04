@@ -72,11 +72,11 @@
         
     </main>
     <div class="form-container" data-js-form>
-        <div class="form-container__close-button" data-js-close-form>⨉</div>
+        <button class="form-container__close-button" data-js-close-form>⨉</button>
         <h2 class="h5">Заказать сайт</h2>
-        <form>
-            <input class="form-container-item" type="name" id="name" placeholder="Ваше имя">
-            <input class="form-container-item" type="number" id="phone" placeholder="Ваш телефон">
+        <form action="php/telegram.php" method="post">
+            <input class="form-container-item" name="name" type="name" id="name" placeholder="Ваше имя">
+            <input class="form-container-item" name="number" type="number" id="phone" placeholder="Ваш телефон">
             <button class="" type="submit">Связаться</button>
         </form>
     </div>

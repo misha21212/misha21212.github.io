@@ -776,6 +776,8 @@ a:hover {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.9375rem;
+  padding: 0.3125rem;
+  background-color: var(--color-light);
 }
 
 input {
@@ -784,10 +786,6 @@ input {
   border: 0.0625rem solid #ddd;
   border-radius: 0.25rem;
   box-sizing: border-box;
-}
-
-button:hover {
-  background-color: #218838;
 }
 
 .overflow {
