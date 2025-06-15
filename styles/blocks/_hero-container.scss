@@ -7,7 +7,8 @@
     background-size: cover;
     background-repeat: no-repeat;   
     width: 100%;
-    height: calc(85vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
     justify-content: center;
 
     @include tablet {

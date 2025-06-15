@@ -506,7 +506,8 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: calc(85vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   justify-content: center;
 }
 @media (width <= 65.68625rem) {
@@ -657,7 +658,6 @@ a:hover {
   position: absolute;
   opacity: 0.5;
   transform: rotateX(180deg);
-  bottom: -3.125rem;
 }
 
 @keyframes wave-bottom1 {
@@ -677,7 +677,6 @@ a:hover {
   position: absolute;
   opacity: 0.8;
   transform: rotateX(180deg);
-  bottom: -2.6875rem;
 }
 
 @keyframes wave-bottom2 {
