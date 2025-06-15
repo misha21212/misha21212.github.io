@@ -506,7 +506,7 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: calc(100vh - var(--header-height));
+  height: calc(90vh - var(--header-height));
   justify-content: center;
 }
 @media (width <= 65.68625rem) {
@@ -599,7 +599,7 @@ a:hover {
 }
 .wave__2 {
   width: 100%;
-  height: 100px;
+  height: 180px;
   background-image: url(../img/hero/wave2.png);
   background-size: 125rem 18.75rem;
   animation: wave2 20s linear infinite;
