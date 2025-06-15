@@ -1,0 +1,13 @@
+@use '../helpers/' as *;
+
+.overflow {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-transperty);
+
+    &:not(.is-active) {
+        display: none;
+    }
+}

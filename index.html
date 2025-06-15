@@ -1,15 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style1.css">
-	<title>Бегалка</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="scripts/main.js" type="module" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Jost:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Great+Vibes&family=Jost:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
 </head>
-<body>
-	<div class="header">
-		<a href="html/news.html" class="news">News</a>
-		<a href="html/contacts.html" class="contacts">Contacts</a>
-	</div>
+<body data-js-body>
+    <header class="header" data-js-header>
+        <div class="logo">
+           <div class="logo-top">ЛISTKOV</div>
+        </div> 
+        <div class="header__overlay" data-js-overlay>
+            <nav class="header__menu">
+                <ul class="header__menu-list">
+                    <li class="header__menu-item">
+                        <a class="header__menu-link nav-services">ГЛАВНАЯ</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a class="header__menu-link nav-examples">ПРЕИМУЩЕСТВА</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a class="header__menu-link nav-examples">ПРИМЕРЫ</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a class="header__menu-link nav-examples">ОТЗЫВЫ</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="button-applications header__menu-button-applications" data-js-applications>Заказать</button>
+        </div>
+        <button class="header__burger-button burger-button visible-mobile" data-js-burger-button type="button" aria-label="Open-menu" title="Open-menu">
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+    </header>
+    <div class="start-button">
+        <button>ЖМИ!</button>
+    </div>
+    <main>
+        <section class="hero">
+            <div class="hero-container container">
+                <div class="hero-container__name">
+                    <h1 class="h1">Создаю <span><p>сайты</p></span> <br>привлекающие внимание</h1>
+                    <h2 class="h4">Создание уникальных визиток и одностраничных сайтов — важный шаг для продвижения вашего бизнеса. Я предлагаю индивидуальный подход и учитываю ваши пожелания, чтобы создать привлекательный и функциональный дизайн, который выделит вас среди конкурентов.</h2>
+                </div>
+                <div class="hero-container__image">
+                    <img src="img/hero/hero.png" alt="">
+                </div>
+            </div>
+            <div class="waves">
+                <div class="wave__1"></div>
+                <div class="wave__2"></div>
+                <div class="wave__3"></div>
+            </div>
+        </section>
+        <div class="hero-border-bottom">
+            <div class="hero-border-bottom-1"></div>
+            <div class="hero-border-bottom-2"></div>
+        </div>
+        
+    </main>
+    <div class="form-container" data-js-form>
+        <button class="form-container__close-button" data-js-close-form>⨉</button>
+        <h2 class="h5">Заказать сайт</h2>
+        <form>
+            <input class="form-container__item-name" name="name" type="name" placeholder="Ваше имя">
+            <input class="form-container__item-phone" name="phone" type="phone" placeholder="Ваш телефон">
+            <button class="submit-button" type="submit">Связаться</button>
+        </form>
+    </div>
+    <div class="overflow" data-js-overflow></div>
+    <script src="scripts/order.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
