@@ -1,0 +1,43 @@
+@use '../helpers/' as *;
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray-20);
+    border-top: 2px solid var(--color-gray);
+    padding-top: rem(60);
+
+    .container {
+        box-shadow: none;
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: 2px solid var(--color-gray-10);
+        padding-bottom: rem(15);
+
+        @include mobile-s {
+            display: flex;
+            flex-direction: column;
+            gap: rem(30);
+        }
+
+        &-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-soc1als {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__company {
+        align-self: center;
+        padding-block: rem(15);
+    }
+}

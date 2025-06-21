@@ -1,0 +1,9 @@
+@use '../helpers/' as *;
+
+
+.logo {
+        
+    @include mobile-s {
+        width: rem(200);
+    }
+}

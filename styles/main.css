@@ -1,0 +1,641 @@
+@charset "UTF-8";
+/*
+Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+button {
+  background-color: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --color-light: #ffffff;
+  --color-dark: #494949;
+  --color-accent: #015198;
+  --color-black-accent: #202020;
+  --color-gray: #727272;
+  --color-gray-10: #a0a0a0;
+  --color-gray-20: #c0c0c0;
+  --color-gray-40: #e8e8e8;
+  --border: 0.0625rem solid var(--color-dark-15);
+  --box-shadow: #7f7f7f;
+  --container-width: 75rem;
+  --container-padding-x: 1rem;
+  --transition-duration: 0.2s;
+  --font-family-base: "Roboto Mono", monospace;
+  --font-family-h: "Raleway", sans-serif;
+  --font-family-weight: "Rubik", sans-serif;
+}
+@media (width <= 90.06125rem) {
+  :root {
+    --container-width: 80rem;
+  }
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+  width: 100%;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (width <= 47.99875rem) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (width > 47.99875rem) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+html.isLock {
+  overflow: hidden;
+}
+
+body {
+  font-size: clamp(0.875rem, 0.8112745098rem + 0.2614379085vw, 1.125rem);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  letter-spacing: -0.03em;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  background-color: var(--color-light);
+  margin-block: 1.5625rem;
+}
+
+p {
+  align-self: self-start;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-black-accent);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  font-family: var(--font-family-accent);
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-weight: 600;
+}
+
+h1, .h1 {
+  font-size: clamp(1.875rem, 1.237745098rem + 2.614379085vw, 4.375rem);
+  line-height: 1.2;
+}
+
+h2, .h2 {
+  font-size: clamp(1.5625rem, 1.4031862745rem + 0.6535947712vw, 2.1875rem);
+  line-height: 1.3;
+  font-family: var(--font-family-h);
+  font-weight: 600;
+  margin-block: 1.875rem;
+}
+
+h3, .h3 {
+  font-size: clamp(0.875rem, 0.7794117647rem + 0.3921568627vw, 1.25rem);
+  color: var(--color-gray-10);
+  font-weight: 400;
+  text-align: center;
+  font-family: var(--font-family-base);
+}
+
+h4, .h4 {
+  font-size: clamp(1.25rem, 1.25rem + 0vw, 1.25rem);
+  color: var(--color-gray);
+}
+
+h5, .h5 {
+  font-size: clamp(1.125rem, 1.0294117647rem + 0.3921568627vw, 1.5rem);
+}
+
+h6, .h6 {
+  font-size: clamp(1rem, 0.9362745098rem + 0.2614379085vw, 1.25rem);
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+}
+a[class] {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 0.125rem dashed var(--color-light);
+  outline-offset: 0.25rem;
+  transition-duration: 0s !important;
+}
+
+a[aria-label],
+button[aria-label] {
+  position: relative;
+}
+a[aria-label]::before,
+button[aria-label]::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  content: "";
+}
+
+.header {
+  background-image: url("../img/header/bg.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0rem 0.25rem 1.25rem var(--box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.9375rem;
+  padding-inline: 3.125rem;
+}
+@media (width <= 30.06125rem) {
+  .header .logo {
+    width: 12.5rem;
+  }
+}
+@media (width <= 63.99875rem) {
+  .header {
+    padding-inline: 2.1875rem;
+  }
+}
+@media (width <= 47.99875rem) {
+  .header {
+    padding-inline: 1.25rem;
+  }
+}
+.header__overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+.header__overlay-info {
+  display: flex;
+  border-bottom: 2px solid var(--color-dark);
+  color: var(--color-black-accent);
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 0.9375rem;
+  align-items: center;
+}
+.header__overlay-info :first-child {
+  font-size: 1.6875rem;
+}
+.header__overlay-info :last-child {
+  font-size: 1.3125rem;
+}
+.header__overlay-text {
+  color: var(--color-black-accent);
+}
+.header__overlay-nav {
+  display: flex;
+  align-items: center;
+  font-size: clamp(0.9375rem, 0.8578431373rem + 0.3267973856vw, 1.25rem);
+  margin-top: 0.9375rem;
+  font-family: var(--font-family-weight);
+  font-weight: 500;
+}
+.header__overlay-nav :not(:last-child) {
+  margin-right: 3.4375rem;
+}
+@media (width <= 47.99875rem) {
+  .header__overlay {
+    position: fixed;
+    inset: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3rem;
+    background-color: var(--color-light);
+    transition-duration: var(--transition-duration);
+  }
+  .header__overlay:not(.is-active) {
+    display: none;
+  }
+}
+
+@media (width <= 30.06125rem) {
+  .logo {
+    width: 12.5rem;
+  }
+}
+
+.burger-button {
+  width: 2.125rem;
+  height: 2.125rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.53125rem 0.265625rem;
+  color: var(--color-dark);
+  background-color: transparent;
+  border: none;
+}
+.burger-button.is-active .burger-button__line:first-child {
+  rotate: 45deg;
+  transform-origin: 0;
+  translate: 0.25em 0.37em;
+}
+.burger-button.is-active .burger-button__line:nth-child(2) {
+  rotate: -45deg;
+}
+.burger-button.is-active .burger-button__line:last-child {
+  display: none;
+}
+.burger-button__line {
+  background-color: currentColor;
+  width: 100%;
+  height: 0.125rem;
+  border-radius: 1rem;
+  transition-duration: var(--transition-duration);
+}
+.burger-button__line:last-child {
+  width: 55%;
+  align-self: end;
+}
+
+.home .h2 {
+  margin-block: 0;
+}
+.home__information {
+  margin-top: 1.5625rem;
+  display: flex;
+  flex-direction: column;
+}
+.home__information-certificate-img {
+  margin-bottom: 2.5rem;
+  align-self: center;
+}
+.home__eldin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home__eldin-logo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 0.3125rem;
+  padding-block: 0.9375rem;
+  border-top: 1px solid var(--color-gray-20);
+  border-bottom: 1px solid var(--color-gray-20);
+}
+.home__eldin-logo p {
+  margin: 0;
+  color: var(--color-black-accent);
+  align-self: center;
+}
+.home__eldin-text {
+  margin-top: 0.9375rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services {
+  background-color: var(--color-gray-40);
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--color-gray-10);
+}
+.services__container-info {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+}
+@media (width <= 30.06125rem) {
+  .services__container-info {
+    flex-direction: column;
+  }
+}
+@media (width <= 30.06125rem) {
+  .services__extra img {
+    max-width: 12.5rem;
+  }
+}
+
+.clients p {
+  align-self: center;
+}
+
+.partners {
+  background-color: var(--color-gray-40);
+  border-top: 2px solid var(--color-gray-10);
+}
+.partners__container-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.8125rem 0;
+  padding-block: 3.125rem;
+  place-items: center;
+}
+@media (width <= 30.06125rem) {
+  .partners__container-images {
+    padding-block: 1.5625rem;
+    gap: 1.875rem 0;
+  }
+}
+.partners__container-images img {
+  height: 4.0625rem;
+}
+@media (width <= 30.06125rem) {
+  .partners__container-images img {
+    height: 2.5rem;
+  }
+}
+
+.contacts__information-map {
+  display: flex;
+  justify-content: center;
+}
+.contacts__information-map iframe {
+  max-width: 65.625rem;
+}
+@media (width <= 30.06125rem) {
+  .contacts__information-map iframe {
+    max-width: 20rem;
+    max-height: 12.5rem;
+  }
+}
+.contacts P {
+  align-self: self-start;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray-20);
+  border-top: 2px solid var(--color-gray);
+  padding-top: 3.75rem;
+}
+.footer .container {
+  box-shadow: none;
+}
+.footer__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 2px solid var(--color-gray-10);
+  padding-bottom: 0.9375rem;
+}
+@media (width <= 30.06125rem) {
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+  }
+}
+.footer__info-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__info-soc1als {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__company {
+  align-self: center;
+  padding-block: 0.9375rem;
+}/*# sourceMappingURL=main.css.map */

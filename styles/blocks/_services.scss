@@ -1,0 +1,30 @@
+@use '../helpers/' as *;
+
+.services {
+    background-color: var(--color-gray-40);
+    padding-bottom: rem(20);
+    border-bottom: 2px solid var(--color-gray-10);
+
+    &__container {
+
+        &-info { 
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            align-items: center;
+
+            @include mobile-s {
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__extra {
+
+        @include mobile-s {
+            img {
+                max-width: rem(200);
+            }
+        }
+    }
+}

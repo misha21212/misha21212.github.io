@@ -1,0 +1,30 @@
+@use '../helpers/' as *;
+
+.partners {
+    background-color: var(--color-gray-40);
+    border-top: 2px solid var(--color-gray-10);
+
+    &__container {
+
+        &-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: rem(45) 0;
+            padding-block: rem(50);
+            place-items: center;
+
+            @include mobile-s {
+                padding-block: rem(25);
+                gap: rem(30) 0;
+            }
+
+            img {
+                height: rem(65);
+
+                @include mobile-s {
+                    height: rem(40);
+                }
+            }
+        }
+    }
+}

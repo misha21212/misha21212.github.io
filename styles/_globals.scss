@@ -1,0 +1,135 @@
+@use 'helpers' as *;
+
+
+html {
+    &.isLock {
+        overflow: hidden;
+    }
+}
+
+body {
+    @include fluid-text(18, 14);
+    
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-base);
+    letter-spacing: -0.03em;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    background-color: var(--color-light);
+    margin-block: rem(25);
+}
+
+p {
+    align-self: self-start;
+}
+
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    color: var(--color-black-accent);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    font-family: var(--font-family-accent);
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-weight: 600;
+}
+
+h1, .h1 {
+    @include fluid-text(70, 30);
+
+    line-height: 1.2;
+}
+
+h2, .h2 {
+    @include fluid-text(35, 25);
+    line-height: 1.3;
+    font-family: var(--font-family-h);
+    font-weight: 600;
+    margin-block: rem(30);
+}
+
+h3, .h3 {
+    @include fluid-text(20, 14) ;
+    color: var(--color-gray-10);
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+
+h4, .h4 {
+    @include fluid-text(20, 20);
+    color: var(--color-gray)
+}
+
+h5, .h5 {
+    @include fluid-text(24, 18);
+}
+
+h6, .h6 {
+    @include fluid-text(20, 16);
+}
+
+a, 
+button,
+label,
+input, 
+textarea, 
+select, 
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+a {
+    color: inherit;//так же как в body
+    cursor: pointer;
+
+    &[class] {
+        text-decoration: none;
+    }
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+:focus-visible {
+    outline: rem(2) dashed var(--color-light);
+    outline-offset: rem(4);
+    transition-duration: 0s !important;
+}
+
+a, 
+button {
+    &[aria-label] {
+        position: relative;
+        
+        &::before {
+            @include abs-center;
+            @include square(rem(44));
+
+            content: '';
+
+        }
+    }
+}

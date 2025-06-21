@@ -1,0 +1,46 @@
+@use '../helpers/' as *;
+
+.home {
+
+    .h2 {
+        margin-block: 0;
+    }
+
+    &__information {
+        margin-top: rem(25);
+        display: flex;
+        flex-direction: column;
+
+        &-certificate-img {
+            margin-bottom: rem(40);
+            align-self: center;
+        }
+    }
+
+    &__eldin {
+        display: flex;
+        flex-direction: column;  
+        align-items: center;   
+
+        &-logo {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: rem(5);
+            padding-block: rem(15);
+            border-top: 1px solid var(--color-gray-20);
+            border-bottom: 1px solid var(--color-gray-20);
+
+            p {
+                margin: 0;
+                color: var(--color-black-accent);
+                align-self: center;
+            }
+        }
+
+        &-text {
+            margin-top: rem(15);
+        }
+    }
+}

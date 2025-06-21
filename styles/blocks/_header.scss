@@ -1,0 +1,90 @@
+@use '../helpers/' as *;
+
+.header {
+    background-image: url('../img/header/bg.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: rem(0) rem(4) rem(20) var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: rem(15);
+    padding-inline: rem(50);
+
+    .logo {
+        
+        @include mobile-s {
+            width: rem(200);
+        }
+    }
+
+    @include tablet {
+        padding-inline: rem(35);
+    }
+
+    @include mobile {
+        padding-inline: rem(20);
+    }
+
+    &__overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.1;
+
+        &-info {
+            display: flex;
+            border-bottom: 2px solid var(--color-dark);
+            color: var(--color-black-accent);
+            width: 100%;
+            justify-content: space-between;
+            padding-bottom: rem(15);
+            align-items: center;
+
+            :first-child {
+                font-size: rem(27);
+            }
+
+            :last-child {
+                font-size: rem(21);
+            }
+        }
+
+        &-text {
+            color: var(--color-black-accent);
+        }
+
+        &-nav {
+            display: flex;
+            align-items: center;
+            font-size: fluid(20, 15);
+            margin-top: rem(15);
+            font-family: var(--font-family-weight);
+            font-weight: 500;
+
+            :not(:last-child) {
+                margin-right: rem(55);
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            inset: 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 3rem;
+            background-color: var(--color-light);
+            transition-duration: var(--transition-duration);
+
+            &:not(.is-active) {
+                display: none;
+            }
+        }
+    }
+}

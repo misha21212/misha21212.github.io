@@ -1,0 +1,25 @@
+@use '../helpers/' as *;
+
+.contacts {
+
+    &__information {
+
+        &-map {
+            display: flex;
+            justify-content: center;
+
+            iframe {
+                max-width: rem(1050);
+
+                @include mobile-s {
+                    max-width: rem(320);
+                    max-height: rem(200);
+                }
+            }
+        }
+    }
+    
+    P {
+        align-self: self-start;
+    }
+}
